@@ -16,3 +16,11 @@
  *= require_self
  *= require bootstrap_and_overrides
  */
+
+ .result-block{
+     display: inline-block;
+ }
+
+ .no-padding{
+     padding: 0 !important;
+ }
