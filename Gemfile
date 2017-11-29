@@ -9,13 +9,16 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
-
+# Use devise for user Authentication
 gem 'devise'
+#Use stock-quote for stock prices
+gem 'stock_quote'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
+gem "font-awesome-rails"
 gem 'sass-rails', '~> 5.0'
 gem 'devise-bootstrap-views'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,6 +32,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
