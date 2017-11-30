@@ -27,24 +27,29 @@ class User < ApplicationRecord
     under_stock_limit? && !stock_already_added(ticker_symbol)
   end
 
-  def self.search(param)
-    param.strip!
-    param.downcase!
-    to_send_back= (first_name_matches(param)+ last_name_matches(param) + email_matches(param))
+  def self.search(params)
+    params.strip
+    params.downcase!
+    to_send_back = (search_by_first_name(params) + search_by_last_name(params) +
+                    search_by_email(params)).uniq
     return nil unless to_send_back
-  end
-  def self.first_name_matches(param)
-    
-  end
-  def self.last_name_matches(param)
-    
-  end
-  def self.emails_matches(param)
-    
+    to_send_back
   end
 
-  def self.matches(field_name, param)
-    User.where("#{field_name} like ?", "%#{param}%")
+  def self.search_by_first_name(params)
+    matches('first_name', params)
+  end
+
+  def self.search_by_last_name(params)
+    matches('last_name', params)
+  end
+
+  def self.search_by_email(params)
+    matches('email', params)
+  end
+
+  def self.matches(field_name, params)
+    User.where("#{field_name} like?", "%#{params}%")
   end
 
 end
